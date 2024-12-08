@@ -1,6 +1,8 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { fetchWeatherByCity } from "../../api/weatherApi";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchWeather } from "../../features/weather/weatherSlice";
+import { RootState, AppDispatch } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 
 interface CityCardProps {
@@ -9,29 +11,19 @@ interface CityCardProps {
 }
 
 const CityCard: React.FC<CityCardProps> = ({ city, onRemove }) => {
-  const [weatherData, setWeatherData] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  const loadWeather = useCallback(async () => {
-    setLoading(true);
-    setError(false);
-    try {
-      const data = await fetchWeatherByCity(city);
-      setWeatherData(data);
-    } catch (err) {
-      console.error("Failed to fetch weather data:", err);
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  }, [city]);
+  // Получаем данные из Redux Store
+  const weatherData = useSelector((state: RootState) => state.weather.weatherData[city]);
+  const loading = useSelector((state: RootState) => state.weather.loading);
+  const error = useSelector((state: RootState) => state.weather.error);
+
+  const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
-    loadWeather();
-  }, [loadWeather]);
+    dispatch(fetchWeather(city));
+  }, [dispatch, city]);
 
   if (loading) return <CardWrapper>Loading...</CardWrapper>;
   if (error) return <CardWrapper>Error loading weather data</CardWrapper>;
@@ -100,7 +92,7 @@ const CityCard: React.FC<CityCardProps> = ({ city, onRemove }) => {
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  loadWeather();
+                  dispatch(fetchWeather(city));
                 }}
                 className="refresh-button"
               >
