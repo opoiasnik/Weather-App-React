@@ -1,5 +1,4 @@
 .details {
-  
   color: #fff;
   text-align: center;
   background: url('../../../public/pexels-elia-clerici-282848-912110.jpg') no-repeat center center fixed; 
@@ -10,7 +9,7 @@
   h2 {
     font-size: 3rem;
     margin-bottom: 20px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   .backButton {
@@ -20,9 +19,10 @@
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255, 255, 255, 0.8);
     color: #333;
     transition: background 0.3s ease;
+
     &:hover {
       background: #fff;
     }
@@ -44,6 +44,12 @@
     gap: 40px;
     justify-content: center;
     flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
   }
 
   .chartBlock {
@@ -58,17 +64,48 @@
     h3 {
       margin-bottom: 10px;
       font-size: 1.2em;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .tempChart {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .tempChart {
+      padding: 10px;
     }
   }
 }
+
 .hourlyForecast {
   margin-top: 40px;
-  
 
   h3 {
     font-size: 2rem;
     margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+    }
   }
 
   .hourlyContainer {
@@ -76,7 +113,8 @@
     gap: 10px;
     overflow-x: auto;
     padding: 10px;
-    margin-left: 17%;
+    margin-left: auto;
+    margin-right: auto;
 
     .hourBlock {
       background: rgba(0, 0, 0, 0.3);
@@ -96,6 +134,39 @@
       p {
         margin: 5px 0;
         font-size: 1rem;
+
+        @media (max-width: 768px) {
+          font-size: 0.9rem;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      gap: 5px;
+
+      .hourBlock {
+        min-width: 80px;
+        padding: 5px;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hourBlock {
+        min-width: 70px;
+
+        img {
+          width: 35px;
+          height: 35px;
+        }
       }
     }
   }

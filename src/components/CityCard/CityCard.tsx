@@ -127,7 +127,7 @@ const CardWrapper = styled.div<{ expanded: boolean }>`
     align-items: center;
     text-align: center;
     z-index: 1;
-    margin-top:20px
+    margin-top: 20px;
   }
 
   .iconTemp {
@@ -163,22 +163,11 @@ const CardWrapper = styled.div<{ expanded: boolean }>`
     font-size: 0.9em;
   }
 
-  .infoTop {
-    position: absolute;
-    top: 10px;
-    left: 5%;
-  }
-
-  .infoBottom {
-    margin-top: 10px;
-  }
-
   .footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-  
   }
 
   .detailedInfoLink {
@@ -217,6 +206,49 @@ const CardWrapper = styled.div<{ expanded: boolean }>`
       background: #fff;
     }
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: ${({ expanded }) => (expanded ? "300px" : "180px")};
+    padding: 10px;
+
+    .temp {
+      font-size: 1.5em;
+    }
+
+    .infoTop,
+    .infoBottom {
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 0.8em;
+    }
+
+    .footer {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .remove-button,
+    .refresh-button {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .temp {
+      font-size: 1.2em;
+    }
+
+    .cardContent {
+      gap: 5px;
+    }
+
+    .cityName {
+      font-size: 1em;
+    }
+  }
 `;
+
 
 export default CityCard;
