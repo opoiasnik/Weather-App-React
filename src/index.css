@@ -1,0 +1,13 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: url('../../../public/pexels-elia-clerici-282848-912110.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+  }
+  

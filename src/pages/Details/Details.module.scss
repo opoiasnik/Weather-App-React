@@ -1,0 +1,102 @@
+.details {
+  
+  color: #fff;
+  text-align: center;
+  background: url('../../../public/pexels-elia-clerici-282848-912110.jpg') no-repeat center center fixed; 
+  background-size: cover;
+  padding: 40px;
+  font-family: 'Segoe UI', sans-serif;
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .backButton {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.8);
+    color: #333;
+    transition: background 0.3s ease;
+    &:hover {
+      background: #fff;
+    }
+  }
+
+  .tempChart {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    max-width: 90%;
+    padding: 20px;
+    margin-bottom: 40px;
+    margin-left: 5%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .otherCharts {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .chartBlock {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 600px;
+    min-width: 300px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+  }
+}
+.hourlyForecast {
+  margin-top: 40px;
+  
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .hourlyContainer {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px;
+    margin-left: 17%;
+
+    .hourBlock {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px);
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      min-width: 100px;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+
+      p {
+        margin: 5px 0;
+        font-size: 1rem;
+      }
+    }
+  }
+}
