@@ -17,6 +17,7 @@ import { Line, Bar, Doughnut, Radar } from "react-chartjs-2";
 import { fetchHourlyForecast } from "../../api/weatherApi";
 import styles from "./Details.module.scss";
 
+
 ChartJS.register(
   CategoryScale,
   LinearScale,

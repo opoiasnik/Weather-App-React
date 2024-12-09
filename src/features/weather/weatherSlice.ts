@@ -19,6 +19,7 @@ export const fetchWeather = createAsyncThunk(
   async (city: string, { rejectWithValue }) => {
     try {
       const data = await fetchWeatherByCity(city);
+      console.log(data)
       return { city, data };
     } catch (error: any) {
       return rejectWithValue(error.message);

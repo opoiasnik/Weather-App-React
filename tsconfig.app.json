@@ -20,7 +20,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "composite": true,
+
+    /* Additional settings for tests */
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "types": ["jest", "node"]
   },
   "include": ["src"]
 }

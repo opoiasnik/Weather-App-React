@@ -14,7 +14,6 @@ const CityCard: React.FC<CityCardProps> = ({ city, onRemove }) => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  // Получаем данные из Redux Store
   const weatherData = useSelector((state: RootState) => state.weather.weatherData[city]);
   const loading = useSelector((state: RootState) => state.weather.loading);
   const error = useSelector((state: RootState) => state.weather.error);
@@ -25,8 +24,8 @@ const CityCard: React.FC<CityCardProps> = ({ city, onRemove }) => {
     dispatch(fetchWeather(city));
   }, [dispatch, city]);
 
-  if (loading) return <CardWrapper>Loading...</CardWrapper>;
-  if (error) return <CardWrapper>Error loading weather data</CardWrapper>;
+  if (loading) return <CardWrapper $expanded={false}>Loading...</CardWrapper>;
+  if (error) return <CardWrapper $expanded={false}>Error loading weather data</CardWrapper>;
 
   const toggleDetails = () => {
     setShowDetails((prev) => !prev);
@@ -37,7 +36,7 @@ const CityCard: React.FC<CityCardProps> = ({ city, onRemove }) => {
   };
 
   return (
-    <CardWrapper expanded={showDetails}>
+    <CardWrapper $expanded={showDetails}>
       {weatherData && (
         <>
           {showDetails && (
@@ -106,9 +105,9 @@ const CityCard: React.FC<CityCardProps> = ({ city, onRemove }) => {
   );
 };
 
-const CardWrapper = styled.div<{ expanded: boolean }>`
+const CardWrapper = styled.div<{ $expanded: boolean }>`
   width: 300px;
-  height: ${({ expanded }) => (expanded ? "240px" : "140px")};
+  height: ${({ $expanded }) => ($expanded ? "240px" : "140px")};
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
   border-radius: 15px;
@@ -209,7 +208,7 @@ const CardWrapper = styled.div<{ expanded: boolean }>`
 
   @media (max-width: 768px) {
     width: 100%;
-    height: ${({ expanded }) => (expanded ? "300px" : "180px")};
+    height: ${({ $expanded }) => ($expanded ? "300px" : "180px")};
     padding: 10px;
 
     .temp {
